@@ -2,7 +2,6 @@ import pandas as pd
 import random
 
 def generate_signals():
-    # Эмуляция: список торговых пар
     symbols = ["BTC/USDT", "ETH/USDT", "SOL/USDT", "XRP/USDT", "DOGE/USDT"]
     signals = []
 
@@ -12,15 +11,22 @@ def generate_signals():
             direction = random.choice(["LONG", "SHORT"])
             probability = random.randint(80, 98)
             minutes_left = random.randint(1, 15)
-            comment = random.choice(["RSI пересечение", "EMA сигнал", "MACD дивергенция"])
+            comment = random.choice([
+                "RSI пересечение", 
+                "EMA сигнал", 
+                "MACD дивергенция", 
+                "Stoch RSI подтверждение", 
+                "Объём ↑", 
+                "BBands пробой"
+            ])
             percent_target = round(random.uniform(1.0, 3.5), 2)
 
             signals.append({
                 "Пара": symbol,
                 "Направление": direction,
                 "Вероятность": f"{probability}%",
-                "Осталось": f"{minutes_left} мин",
-                "Цель": f"{percent_target}%", 
+                "Импульс через": f"{minutes_left} мин",
+                "Цель": f"{percent_target}%",
                 "Комментарий": comment
             })
 
